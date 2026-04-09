@@ -1,53 +1,267 @@
 {
-  "currentVersion": "v0.1",
+  "currentVersion": "v0.2",
   "status": "draft",
-  "versions": [],
+  "versions": [
+    {
+      "version": "v0.1",
+      "createdAt": "2026-04-09T00:00:00+08:00",
+      "trigger": "cold-start",
+      "inputSummary": "基于客户档案推演",
+      "changeSummary": ["从档案推演补充11条需求", "覆盖CRM、项目管理、回款、知识库等方向"]
+    },
+    {
+      "version": "v0.2",
+      "createdAt": "2026-04-09T12:00:00+08:00",
+      "trigger": "customer-stated",
+      "inputSummary": "基于财务总监沟通记录，提取业财一体化方向需求",
+      "changeSummary": ["从客户沟通提取7条需求，聚焦项目级利润核算与业财一体化", "新增工时自动填报、费用归集分摊、多系统集成等核心需求", "从档案和行业推演补充2条相关需求"]
+    }
+  ],
   "current": {
     "salesInput": {
       "salesPerson": "",
       "lastUpdated": "2026-04-09",
       "overallAssessment": {
-        "customerIntent": "",
+        "customerIntent": "强烈",
         "projectUrgency": "中等，窗口期6-12个月",
         "budgetSituation": "未知",
-        "competitionStatus": "未知",
+        "competitionStatus": "不明确",
         "winProbability": "",
-        "keyObstacles": [],
+        "keyObstacles": ["多系统并行数据孤岛", "宜搭流程迁移成本"],
         "confidenceLevel": ""
       },
       "keyPersons": [
-        { "name": "李琼芳", "title": "法人/实控人", "role": "最终决策人" },
-        { "name": "郭女士", "title": "渠道销售负责人", "role": "业务负责人/触点" }
+        {
+          "name": "财务总监",
+          "title": "财务总监",
+          "role": "需求发起人/决策者",
+          "attitude": "支持",
+          "influence": "决策者",
+          "concerns": ["项目利润核算不准确", "多系统数据汇总困难"],
+          "quotes": []
+        },
+        {
+          "name": "李琼芳",
+          "title": "法人/实控人",
+          "role": "最终决策人"
+        },
+        {
+          "name": "郭女士",
+          "title": "渠道销售负责人",
+          "role": "业务负责人/触点"
+        }
       ],
       "realNeeds": {
-        "explicitNeeds": [],
-        "implicitNeeds": ["600+政企客户资产化", "多平台项目协调", "核心团队经验固化"],
-        "suspectedNeeds": ["回款周期优化", "运维响应能力提升"]
+        "explicitNeeds": ["项目级利润核算", "工时自动填报与归集", "多系统数据集成", "收入确认自动化", "费用分类归集到项目"],
+        "implicitNeeds": ["统一费用报销入口", "自动化费用分摊", "项目成本精细化管控"],
+        "suspectedNeeds": ["回款周期优化", "运维响应能力提升", "600+政企客户资产化", "多平台项目协调"]
       },
       "decisionFactors": {
-        "primaryFactor": "",
-        "secondaryFactors": [],
-        "dealBreakers": []
+        "primaryFactor": "项目利润核算准确性",
+        "secondaryFactors": ["现有系统迁移成本", "与宜搭/易快报/自研CRM集成能力", "上线周期"],
+        "dealBreakers": ["无法打通现有三个系统数据"]
       },
-      "notes": "渠道扩张期是最佳接触时机，CRM/项目管理可作切入，运营商合作为生态桥梁",
-      "concerns": [],
-      "suggestions": []
+      "notes": "财务总监作为业财一体化需求发起人，明确要求项目维度的利润核算和多系统数据汇总。宜搭现有流程可迁移，需打通宜搭、易快报、自研CRM数据。",
+      "concerns": ["多系统并行导致数据孤岛", "人工工时统计效率低且不准确", "财务手动计算汇总工作量大"],
+      "suggestions": ["宜搭现有流程可迁移", "需打通宜搭、易快报、自研CRM数据", "优先实施项目利润核算模块作为切入点"]
     },
     "sources": {
       "meetings": [],
       "documents": [],
-      "communications": [],
+      "communications": [
+        {
+          "date": "2026-04-09",
+          "type": "客户沟通",
+          "participant": "财务总监",
+          "summary": "财务总监提出项目级利润核算需求，描述当前多系统并行（宜搭、易快报、自研CRM）导致汇总困难，人工工时统计用Excel易缺失不准确，管理费用需挂靠到项目，行政费用按比例分摊"
+        }
+      ],
       "observations": []
     },
     "needs": [
       {
         "id": "REQ-001",
         "category": "business",
+        "title": "项目级利润核算",
+        "description": "按项目维度统计收入、支出和利润，财务总监可查看全部项目的详细利润情况",
+        "priority": "must",
+        "confidence": "high",
+        "source": {
+          "type": "customer-stated",
+          "detail": "财务总监明确提出需要统计内部详细利润情况",
+          "raw": "想要统计出内部的详细利润情况"
+        },
+        "status": "active",
+        "module": "业财一体化/利润核算",
+        "relatedPainPoints": ["项目管理", "回款管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-002",
+        "category": "business",
+        "title": "收入确认自动化",
+        "description": "从宜搭开票申请和收入确认单流程自动获取真实收入数据，无需人工汇总",
+        "priority": "must",
+        "confidence": "high",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户说明收入来源是宜搭流程中的开票申请和收入确认单",
+          "raw": "收入是源于现在用的宜搭流程，通过开票申请和收入确认单来确认真实的收入情况"
+        },
+        "status": "active",
+        "module": "业财一体化/收入管理",
+        "relatedPainPoints": ["回款管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-003",
+        "category": "functional",
+        "title": "工时自动填报与归集",
+        "description": "替代现有Excel周报/月报方式，实现各部门工时在线填报，自动按项目归集工时并计算人工成本占比",
+        "priority": "must",
+        "confidence": "high",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户描述目前用Excel统计上报名额，容易缺失或不准确，是核心痛点",
+          "raw": "人工工时统计很麻烦，都是由各个部门每周或者每月上报一个数据，容易缺失或不准确"
+        },
+        "status": "active",
+        "module": "业财一体化/工时管理",
+        "relatedPainPoints": ["项目管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-004",
+        "category": "functional",
+        "title": "费用分类归集到项目",
+        "description": "将管理费用（办公、福利、交通、差旅、招待等）按项目维度自动挂靠归集",
+        "priority": "must",
+        "confidence": "high",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户明确说明管理费用需挂靠到每个项目",
+          "raw": "管理费用也是要挂靠到对应的每个项目上面去的"
+        },
+        "status": "active",
+        "module": "业财一体化/费用归集",
+        "relatedPainPoints": ["项目管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-005",
+        "category": "functional",
+        "title": "行政费用按比例分摊",
+        "description": "将房租、水电等行政费用按固定比例分摊到所有项目",
+        "priority": "should",
+        "confidence": "high",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户说明行政费用由固定比例分摊到所有项目",
+          "raw": "行政费用是一些房租、水电这些等等的费用，由固定的比例分摊到所有的项目当中去"
+        },
+        "status": "active",
+        "module": "业财一体化/费用分摊",
+        "relatedPainPoints": ["项目管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-006",
+        "category": "integration",
+        "title": "多系统数据集成",
+        "description": "打通宜搭（费用流程，各项目独立流程）、易快报（报销）、自研CRM（客户管理）三个系统的数据，实现统一汇总",
+        "priority": "must",
+        "confidence": "high",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户明确描述多系统并行导致汇总困难",
+          "raw": "多系统并行，汇总起来非常麻烦"
+        },
+        "status": "active",
+        "module": "集成/数据中台",
+        "relatedPainPoints": ["项目管理", "客户管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-007",
+        "category": "integration",
+        "title": "财务费用自动汇总",
+        "description": "替代财务部门手动计算汇总，实现财务费用自动归集到项目",
+        "priority": "should",
+        "confidence": "medium",
+        "source": {
+          "type": "customer-stated",
+          "detail": "客户提到财务费用由财务部门手动计算汇总",
+          "raw": "财务相关的费用，是由财务部门手动去计算汇总的"
+        },
+        "status": "active",
+        "module": "业财一体化/费用归集",
+        "relatedPainPoints": ["项目管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-008",
+        "category": "functional",
+        "title": "项目合同与应收管理",
+        "description": "管理项目级合同信息、付款里程碑、应收款项和回款状态，与收入确认流程联动，支持超期预警",
+        "priority": "should",
+        "confidence": "low",
+        "source": {
+          "type": "profile-inference",
+          "detail": "回款管理痛点（severity=中）+ B端项目账期长特征 + 项目利润核算需要完整收入确认闭环",
+          "raw": null
+        },
+        "status": "active",
+        "module": "业财一体化/合同应收",
+        "relatedPainPoints": ["回款管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-009",
+        "category": "functional",
+        "title": "业财数据报表与可视化",
+        "description": "为财务总监和管理层提供项目利润看板、费用构成分析、工时利用率等可视化报表，支持按项目/部门/时间维度筛选",
+        "priority": "should",
+        "confidence": "low",
+        "source": {
+          "type": "industry-pattern",
+          "detail": "业财一体化项目标配能力，项目利润核算需配套报表支撑决策",
+          "raw": null
+        },
+        "status": "active",
+        "module": "数据分析/报表中心",
+        "relatedPainPoints": ["项目管理"],
+        "firstVersion": "v0.2",
+        "lastUpdated": "v0.2",
+        "history": []
+      },
+      {
+        "id": "REQ-010",
+        "category": "business",
         "title": "政企客户全生命周期管理",
         "description": "整合分散在多平台的600+政企客户信息，建立统一的客户档案、续约提醒和交叉销售管理体系",
         "priority": "must",
         "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "客户管理痛点（severity=高）+ 600+政企客户规模推演", "raw": null },
+        "source": {
+          "type": "profile-inference",
+          "detail": "客户管理痛点（severity=高）+ 600+政企客户规模推演",
+          "raw": null
+        },
         "status": "active",
         "module": "CRM/客户成功",
         "relatedPainPoints": ["客户管理"],
@@ -56,13 +270,17 @@
         "history": []
       },
       {
-        "id": "REQ-002",
+        "id": "REQ-011",
         "category": "business",
         "title": "多平台并行项目协调管理",
         "description": "支持跨部门、跨区域的并行项目看板、进度跟踪和资源冲突预警，覆盖云信短信、云易贷、共享出行等多条业务线",
         "priority": "must",
         "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "项目管理痛点（severity=高）+ 多平台并行运营特征推演", "raw": null },
+        "source": {
+          "type": "profile-inference",
+          "detail": "项目管理痛点（severity=高）+ 多平台并行运营特征推演",
+          "raw": null
+        },
         "status": "active",
         "module": "项目管理",
         "relatedPainPoints": ["项目管理"],
@@ -71,28 +289,17 @@
         "history": []
       },
       {
-        "id": "REQ-003",
-        "category": "functional",
-        "title": "B端项目回款跟踪与预警",
-        "description": "管理长账期项目应收款项、付款节点和到账确认，对接大客户复杂付款流程，支持多级审批",
-        "priority": "should",
-        "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "回款管理痛点（severity=中）+ B端项目账期长特征推演", "raw": null },
-        "status": "active",
-        "module": "合同/应收管理",
-        "relatedPainPoints": ["回款管理"],
-        "firstVersion": "v0.1",
-        "lastUpdated": "v0.1",
-        "history": []
-      },
-      {
-        "id": "REQ-004",
+        "id": "REQ-012",
         "category": "functional",
         "title": "运营知识库与经验沉淀",
         "description": "将十余年平台运营经验结构化，支持案例库、最佳实践、操作手册等分类管理，加速新人培养",
         "priority": "should",
         "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "知识管理痛点（severity=中）+ 核心团队经验集中推演", "raw": null },
+        "source": {
+          "type": "profile-inference",
+          "detail": "知识管理痛点（severity=中）+ 核心团队经验集中推演",
+          "raw": null
+        },
         "status": "active",
         "module": "知识管理",
         "relatedPainPoints": ["知识管理"],
@@ -101,43 +308,17 @@
         "history": []
       },
       {
-        "id": "REQ-005",
-        "category": "functional",
-        "title": "渠道合伙人管理",
-        "description": "管理区域合伙人信息、合作协议、业绩分润和拓展进度，支持渠道扩张期快速规模化",
-        "priority": "should",
-        "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "渠道合伙人扩张策略 + 渠道销售负责人角色推演", "raw": null },
-        "status": "active",
-        "module": "CRM/渠道管理",
-        "relatedPainPoints": ["客户管理"],
-        "firstVersion": "v0.1",
-        "lastUpdated": "v0.1",
-        "history": []
-      },
-      {
-        "id": "REQ-006",
-        "category": "functional",
-        "title": "客户成功与续约管理",
-        "description": "跟踪政企客户使用健康度、服务满意度，主动触发续约前关怀和升级销售机会识别",
-        "priority": "should",
-        "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "600+政企客户资产化需求 + 续约管理不透明痛点推演", "raw": null },
-        "status": "active",
-        "module": "客户成功",
-        "relatedPainPoints": ["客户管理"],
-        "firstVersion": "v0.1",
-        "lastUpdated": "v0.1",
-        "history": []
-      },
-      {
-        "id": "REQ-007",
+        "id": "REQ-013",
         "category": "technical",
         "title": "钉钉生态深度集成",
         "description": "基于2022年已引入钉钉生态的基础，打通钉钉审批、组织架构和消息通知，实现统一入口",
         "priority": "should",
         "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "timing分析中钉钉生态基础 + 2022年鑫蜂维数字化咨询推演", "raw": null },
+        "source": {
+          "type": "profile-inference",
+          "detail": "timing分析中钉钉生态基础 + 2022年鑫蜂维数字化咨询推演",
+          "raw": null
+        },
         "status": "active",
         "module": "集成/平台对接",
         "relatedPainPoints": ["项目管理", "知识管理"],
@@ -146,13 +327,17 @@
         "history": []
       },
       {
-        "id": "REQ-008",
+        "id": "REQ-014",
         "category": "functional",
         "title": "多平台运维监控与告警",
         "description": "对云信短信、共享出行等高稳定性要求平台实现统一监控、故障告警和响应工单管理",
         "priority": "could",
         "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "运维管理痛点（severity=中）+ 短信/共享出行高稳定性要求推演", "raw": null },
+        "source": {
+          "type": "profile-inference",
+          "detail": "运维管理痛点（severity=中）+ 短信/共享出行高稳定性要求推演",
+          "raw": null
+        },
         "status": "active",
         "module": "运维管理",
         "relatedPainPoints": ["运维管理"],
@@ -161,13 +346,17 @@
         "history": []
       },
       {
-        "id": "REQ-009",
+        "id": "REQ-015",
         "category": "technical",
         "title": "信创环境适配",
         "description": "满足政企客户信创要求，支持国产操作系统、数据库和中间件的部署与适配",
         "priority": "could",
         "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "企业标签含'信创' + 党政军金融行业目标客户推演", "raw": null },
+        "source": {
+          "type": "profile-inference",
+          "detail": "企业标签含'信创' + 党政军金融行业目标客户推演",
+          "raw": null
+        },
         "status": "active",
         "module": "信创/合规",
         "relatedPainPoints": [],
@@ -176,86 +365,226 @@
         "history": []
       },
       {
-        "id": "REQ-010",
+        "id": "REQ-016",
         "category": "data",
         "title": "政企客户数据分析与可视化",
         "description": "对600+政企客户的行业分布、续约率、收入贡献等维度进行数据分析，支持经营决策",
         "priority": "could",
         "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "600+政企客户规模 + SaaS平台数据驱动运营特征推演", "raw": null },
+        "source": {
+          "type": "profile-inference",
+          "detail": "600+政企客户规模 + SaaS平台数据驱动运营特征推演",
+          "raw": null
+        },
         "status": "active",
         "module": "数据分析",
         "relatedPainPoints": ["客户管理"],
         "firstVersion": "v0.1",
         "lastUpdated": "v0.1",
         "history": []
-      },
-      {
-        "id": "REQ-011",
-        "category": "integration",
-        "title": "运营商及金融机构系统对接",
-        "description": "与运营商、银行等标杆客户的系统实现API对接，支持订单自动同步、服务状态推送等场景",
-        "priority": "could",
-        "confidence": "low",
-        "source": { "type": "profile-inference", "detail": "运营商+银行标杆客户策略 + 2024年多地中标运营商和金融机构项目推演", "raw": null },
-        "status": "active",
-        "module": "集成/平台对接",
-        "relatedPainPoints": [],
-        "firstVersion": "v0.1",
-        "lastUpdated": "v0.1",
-        "history": []
       }
     ],
     "users": [
-      { "role": "渠道销售负责人（郭女士）", "description": "1人，负责区域合伙人管理和政企客户开拓", "mainTasks": ["客户信息录入与更新", "渠道合伙人业绩跟踪", "续约提醒与跟进"] },
-      { "role": "项目经理/运营人员", "description": "若干，负责多平台并行项目的进度协调", "mainTasks": ["项目看板管理", "跨部门任务分配", "进度预警处理"] },
-      { "role": "财务/商务", "description": "若干，负责B端项目回款跟踪", "mainTasks": ["应收款项登记", "付款节点跟踪", "到账确认"] },
-      { "role": "技术/运维团队", "description": "若干，负责多平台稳定性保障", "mainTasks": ["监控告警响应", "故障工单处理", "系统可用性报告"] },
-      { "role": "新员工", "description": "持续补充，负责知识库查阅和案例学习", "mainTasks": ["知识库查询", "最佳实践学习", "操作手册查阅"] }
+      {
+        "role": "财务总监",
+        "description": "需求发起人，负责项目利润核算和财务决策",
+        "mainTasks": ["查看项目利润报表", "审核费用归集和分摊", "经营数据分析决策"]
+      },
+      {
+        "role": "财务人员",
+        "description": "负责费用录入、发票管理和收入确认",
+        "mainTasks": ["录入和核对费用数据", "管理开票申请", "跟踪收入确认", "查看自动汇总报表"]
+      },
+      {
+        "role": "项目经理",
+        "description": "负责项目进度管理和成本控制",
+        "mainTasks": ["项目进度跟踪", "团队工时审核", "项目成本监控", "资源协调"]
+      },
+      {
+        "role": "部门负责人",
+        "description": "各部门负责人，审核本部门工时和资源投入",
+        "mainTasks": ["部门工时审核确认", "资源分配审批", "部门费用查看"]
+      },
+      {
+        "role": "研发人员",
+        "description": "参与项目交付的研发团队成员",
+        "mainTasks": ["填报个人工时", "查看项目任务", "提交费用报销"]
+      },
+      {
+        "role": "非研发人员",
+        "description": "销售、运营、行政等非研发岗位",
+        "mainTasks": ["填报工时", "提交费用报销", "查看项目相关信息"]
+      },
+      {
+        "role": "系统管理员",
+        "description": "负责系统配置、权限管理和集成维护",
+        "mainTasks": ["系统参数配置", "用户权限管理", "集成接口维护"]
+      }
     ],
     "scope": {
-      "inScope": ["CRM/客户成功管理", "项目管理（多平台并行）", "知识库", "回款跟踪", "渠道合伙人管理"],
-      "outOfScope": ["底层代码开发", "硬件采购", "独立移动App开发"],
-      "futureScope": ["AI智能推荐", "供应商管理", "人力资源管理"],
+      "inScope": [
+        "业财一体化：项目利润核算、收入确认、工时归集、费用归集与分摊",
+        "多系统集成：宜搭、易快报、自研CRM数据打通",
+        "CRM/客户成功管理",
+        "项目管理（多平台并行）",
+        "知识库与经验沉淀",
+        "钉钉生态集成"
+      ],
+      "outOfScope": [
+        "底层代码开发",
+        "硬件采购",
+        "独立移动App开发",
+        "ERP核心财务系统替换"
+      ],
+      "futureScope": [
+        "AI智能推荐",
+        "供应商管理",
+        "人力资源管理",
+        "预算编制与管控"
+      ],
       "phases": [
-        { "phase": 1, "focus": "CRM+项目管理（核心痛点切入）", "approxDuration": "3-6个月" },
-        { "phase": 2, "focus": "知识库+回款管理（效率提升）", "approxDuration": "3-6个月" },
-        { "phase": 3, "focus": "运维监控+数据分析（运营深化）", "approxDuration": "3-6个月" }
+        {
+          "phase": 1,
+          "focus": "业财一体化核心：项目利润核算 + 工时填报 + 费用归集（P0）",
+          "approxDuration": "2-4个月"
+        },
+        {
+          "phase": 2,
+          "focus": "多系统集成 + 行政费用分摊 + 收入确认自动化",
+          "approxDuration": "2-3个月"
+        },
+        {
+          "phase": 3,
+          "focus": "CRM + 项目管理深化 + 知识库",
+          "approxDuration": "3-6个月"
+        }
       ],
       "priorityMatrix": [
-        { "effort": "高", "impact": "高", "recommendation": "优先实施", "items": ["政企客户全生命周期管理", "多平台项目协调管理"] },
-        { "effort": "中", "impact": "高", "recommendation": "第二阶段", "items": ["B端项目回款跟踪", "运营知识库", "渠道合伙人管理"] },
-        { "effort": "低", "impact": "中", "recommendation": "按需", "items": ["钉钉生态集成", "运维监控"] }
+        {
+          "effort": "中",
+          "impact": "高",
+          "recommendation": "优先实施",
+          "items": ["项目级利润核算", "工时自动填报与归集", "费用分类归集到项目"]
+        },
+        {
+          "effort": "高",
+          "impact": "高",
+          "recommendation": "第二阶段",
+          "items": ["多系统数据集成", "收入确认自动化"]
+        },
+        {
+          "effort": "中",
+          "impact": "中",
+          "recommendation": "第三阶段",
+          "items": ["行政费用按比例分摊", "财务费用自动汇总", "业财数据报表与可视化"]
+        },
+        {
+          "effort": "高",
+          "impact": "高",
+          "recommendation": "长期推进",
+          "items": ["政企客户全生命周期管理", "多平台并行项目协调管理"]
+        }
       ]
     },
     "constraints": {
-      "budget": { "total": "", "flexibility": "未知" },
-      "timeline": { "expectedStart": "", "expectedGoLive": "" }
+      "budget": {
+        "total": "",
+        "flexibility": "未知"
+      },
+      "timeline": {
+        "expectedStart": "",
+        "expectedGoLive": "",
+        "urgencyNote": "客户处于扩张强化期，窗口期6-12个月，业财一体化需求紧迫度较高"
+      },
+      "technical": [
+        "需兼容宜搭现有流程和数据结构",
+        "需对接易快报API和自研CRM数据",
+        "已有钉钉生态基础，可复用"
+      ]
     },
-    "successCriteria": {},
+    "successCriteria": {
+      "criteria": [
+        {
+          "metric": "项目利润核算准确率",
+          "target": "项目级利润数据与财务手工核算结果差异 < 2%",
+          "measureMethod": "抽样对比验证"
+        },
+        {
+          "metric": "工时填报效率提升",
+          "target": "工时统计时间从每周/每月手动汇总缩短至实时在线填报，人工操作减少80%以上",
+          "measureMethod": "上线前后工时统计耗时对比"
+        },
+        {
+          "metric": "费用归集自动化率",
+          "target": "管理费用和行政费用自动归集到项目的比例 > 90%",
+          "measureMethod": "系统自动归集费用 / 总费用"
+        },
+        {
+          "metric": "多系统数据同步及时性和准确性",
+          "target": "宜搭、易快报、CRM数据自动同步，延迟 < 15分钟，数据一致性 > 99%",
+          "measureMethod": "系统日志监控 + 定期数据校验"
+        },
+        {
+          "metric": "财务手工汇总工作量减少",
+          "target": "财务部门月度费用汇总时间减少70%以上",
+          "measureMethod": "上线前后耗时对比"
+        }
+      ]
+    },
     "risksAndAssumptions": {
       "risks": [
-        { "description": "大客户和战略合作需法人双签，决策链较长，可能影响推进节奏", "impact": "高", "mitigation": "提前识别关键决策人，制定差异化沟通策略" },
-        { "description": "渠道合伙人分散各地，数据采集和系统推广存在地域障碍", "impact": "中", "mitigation": "采用SaaS云部署，优先线上培训和引导" },
-        { "description": "多平台并行运营现状复杂，系统对接工作量存在不确定性", "impact": "中", "mitigation": "首期聚焦核心模块，后续迭代扩展" }
+        {
+          "description": "宜搭、易快报、自研CRM三个系统的API开放程度和数据质量不确定，集成工作量可能超预期",
+          "impact": "高",
+          "mitigation": "早期进行技术可行性验证，摸清各系统接口能力和数据质量"
+        },
+        {
+          "description": "各部门对工时在线填报的接受度和配合度不确定，可能影响数据准确性",
+          "impact": "中",
+          "mitigation": "设计极简填报流程，与钉钉等日常工具打通，降低使用门槛"
+        },
+        {
+          "description": "项目维度的费用归集规则复杂（管理费用挂靠、行政费用分摊），规则定义和变更管理成本高",
+          "impact": "中",
+          "mitigation": "首期固化核心规则，后续支持灵活配置"
+        },
+        {
+          "description": "大客户和战略合作需法人双签，决策链较长，可能影响项目推进节奏",
+          "impact": "中",
+          "mitigation": "提前识别关键决策人，分阶段交付可见成果以维持推进动力"
+        }
       ],
       "assumptions": [
-        { "description": "假设渠道扩张期（当前阶段）对客户管理和项目管理工具的需求紧迫度高于其他阶段", "impact": "高" },
-        { "description": "假设2022年引入钉钉生态后，组织对协作工具已有基本接受度，可降低培训成本", "impact": "中" },
-        { "description": "假设600+政企客户中存在足够数量的高价值客户，值得投入CRM建设", "impact": "中" },
-        { "description": "假设信创要求来自目标政企客户而非自身合规需求，可作为加分项而非必选项", "impact": "低" }
+        {
+          "description": "假设宜搭现有开票申请和收入确认单流程数据结构清晰，可直接作为数据源",
+          "impact": "高"
+        },
+        {
+          "description": "假设各部门工时统计的现有Excel模板可作为在线填报表单的设计参考",
+          "impact": "中"
+        },
+        {
+          "description": "假设自研CRM有可供对接的API或数据库访问权限",
+          "impact": "高"
+        }
       ],
       "dependencies": [
-        "依赖钉钉生态API开放程度评估",
-        "依赖现有各平台系统接口调研"
+        "依赖宜搭流程数据和接口调研",
+        "依赖易快报API对接能力评估",
+        "依赖自研CRM数据结构梳理"
       ]
     },
     "solutionDirection": {
-      "overallApproach": "以CRM+项目管理为核心模块，分三期落地；优先云SaaS部署降低实施门槛；与钉钉生态深度集成复用现有投入",
-      "recommendedApproach": null,
-      "technicalDirection": null,
-      "implementationStrategy": null,
-      "nextSteps": []
+      "overallApproach": "以业财一体化为切入点，优先实施项目利润核算、工时归集和费用归集三大核心模块，快速验证价值后逐步扩展多系统集成和CRM能力",
+      "recommendedApproach": "建议基于现有钉钉生态构建，复用已有数字化基础；数据层采用轻量级数据中台方案，通过API/ETL打通宜搭、易快报、自研CRM三个系统，在上层构建统一的业财分析和报表能力",
+      "technicalDirection": "前端嵌入钉钉工作台或独立Web端；后端采用微服务架构，业财核算模块独立部署；数据集成层通过API对接宜搭和易快报，自研CRM可通过数据库同步或API方式接入；报表层支持自定义Dashboard",
+      "implementationStrategy": "分三阶段：Phase 1聚焦项目利润核算核心链路（工时+费用归集+利润计算），Phase 2完成多系统集成和自动化，Phase 3扩展CRM和项目深化管理。每期交付可见成果，持续验证和调整",
+      "nextSteps": [
+        "调研宜搭现有流程数据结构和API能力",
+        "评估易快报集成接口",
+        "梳理自研CRM数据结构和对接近方案",
+        "与财务总监确认项目结构和费用分摊规则"
+      ]
     },
     "pendingQuestions": [
       {
@@ -263,11 +592,11 @@
         "category": "预算",
         "priority": "必问",
         "stage": "screening",
-        "question": "贵司今年在内部数字化工具（CRM、项目管理等）的预算大概是什么量级？",
+        "question": "贵司在业财一体化/项目利润核算方向的预算大概是什么量级？",
         "purpose": "判断客户购买力和项目可行性，识别付费意愿",
         "expectedDirection": "期望得到具体金额范围或相对量级判断",
-        "targetPerson": "郭女士（渠道销售负责人）或李琼芳（法人）",
-        "relatedNeedIds": ["REQ-001", "REQ-002", "REQ-003"],
+        "targetPerson": "财务总监或李琼芳（法人）",
+        "relatedNeedIds": ["REQ-001", "REQ-002", "REQ-006"],
         "status": "pending",
         "answer": null,
         "resolvedInVersion": null
@@ -277,11 +606,11 @@
         "category": "时间",
         "priority": "必问",
         "stage": "screening",
-        "question": "公司内部对这套系统的上线时间有预期吗？比如有没有一个希望今年内用起来的节点？",
+        "question": "财务总监对这套项目利润核算系统有上线时间的预期吗？有没有希望在某个时间点前用起来？",
         "purpose": "判断项目紧迫度，制定推进计划",
         "expectedDirection": "期望得到具体时间节点或时间范围",
-        "targetPerson": "郭女士（渠道销售负责人）",
-        "relatedNeedIds": ["REQ-001", "REQ-002"],
+        "targetPerson": "财务总监",
+        "relatedNeedIds": ["REQ-001", "REQ-003"],
         "status": "pending",
         "answer": null,
         "resolvedInVersion": null
@@ -291,25 +620,25 @@
         "category": "决策",
         "priority": "必问",
         "stage": "screening",
-        "question": "像这类数字化工具的采购，最终是郭女士您这边拍板，还是需要李总（法人）那边确认？",
+        "question": "这类业财一体化项目的采购决策流程是怎样的？财务总监可以独立拍板，还是需要李总（法人）确认？",
         "purpose": "明确决策链和关键人，避免做无用功",
         "expectedDirection": "期望得到决策层级说明（单签/双签/特批等）",
-        "targetPerson": "郭女士（渠道销售负责人）",
-        "relatedNeedIds": ["REQ-001", "REQ-002"],
+        "targetPerson": "财务总监",
+        "relatedNeedIds": ["REQ-001"],
         "status": "pending",
         "answer": null,
         "resolvedInVersion": null
       },
       {
         "id": "PQ-004",
-        "category": "业务",
+        "category": "技术",
         "priority": "必问",
         "stage": "deep-dive",
-        "question": "目前600+政企客户的信息主要分散在哪些平台？有没有一个主平台在管，还是完全散落的？",
-        "purpose": "了解客户管理现状，评估数据整合工作量",
-        "expectedDirection": "期望得到具体平台名称和当前管理方式",
-        "targetPerson": "郭女士（渠道销售负责人）",
-        "relatedNeedIds": ["REQ-001", "REQ-006"],
+        "question": "宜搭目前有多少个与费用/收入相关的流程？每个项目的流程是独立的还是统一的？",
+        "purpose": "评估宜搭流程迁移和数据对接的工作量",
+        "expectedDirection": "期望得到具体流程数量和结构说明",
+        "targetPerson": "财务总监或系统管理员",
+        "relatedNeedIds": ["REQ-002", "REQ-006"],
         "status": "pending",
         "answer": null,
         "resolvedInVersion": null
@@ -319,11 +648,11 @@
         "category": "业务",
         "priority": "必问",
         "stage": "deep-dive",
-        "question": "多平台并行项目协调这块，目前是怎么管理的？是用表格、邮件，还是有专门的工具？",
-        "purpose": "了解项目管理现状，判断痛点真实程度和工作流",
-        "expectedDirection": "期望得到当前管理方式和主要卡点",
-        "targetPerson": "项目经理/运营人员",
-        "relatedNeedIds": ["REQ-002"],
+        "question": "公司的项目结构是怎样的？是按业务线（短信/共享出行/数字营销）划分，还是按客户划分？费用分摊规则（如行政费用分摊比例）目前是怎么定的？",
+        "purpose": "了解项目和成本结构，为系统设计提供依据",
+        "expectedDirection": "期望得到项目分类方式和费用分摊规则",
+        "targetPerson": "财务总监",
+        "relatedNeedIds": ["REQ-001", "REQ-004", "REQ-005"],
         "status": "pending",
         "answer": null,
         "resolvedInVersion": null
@@ -333,11 +662,11 @@
         "category": "技术",
         "priority": "选问",
         "stage": "deep-dive",
-        "question": "现在钉钉里主要跑哪些审批和协作场景？对打通钉钉组织架构这块有需求吗？",
-        "purpose": "评估钉钉集成深度和价值点",
-        "expectedDirection": "期望得到钉钉使用深度和集成期望",
-        "targetPerson": "郭女士（渠道销售负责人）或IT负责人",
-        "relatedNeedIds": ["REQ-007"],
+        "question": "宜搭、易快报、自研CRM这三个系统有没有现成的API可以对接？自研CRM的数据结构文档是否可提供？",
+        "purpose": "评估集成可行性和工作量",
+        "expectedDirection": "期望得到API文档和对接权限信息",
+        "targetPerson": "系统管理员或IT负责人",
+        "relatedNeedIds": ["REQ-006", "REQ-007"],
         "status": "pending",
         "answer": null,
         "resolvedInVersion": null
@@ -347,11 +676,11 @@
         "category": "竞对",
         "priority": "选问",
         "stage": "screening",
-        "question": "目前内部有在对比其他家的CRM或者项目管理工具吗？还是说刚有想法在找？",
+        "question": "目前内部有在对比其他业财一体化或项目成本管理的方案吗？",
         "purpose": "判断采购阶段和竞争态势",
         "expectedDirection": "期望了解竞对情况或采购阶段",
-        "targetPerson": "郭女士（渠道销售负责人）",
-        "relatedNeedIds": ["REQ-001", "REQ-002"],
+        "targetPerson": "财务总监",
+        "relatedNeedIds": ["REQ-001"],
         "status": "pending",
         "answer": null,
         "resolvedInVersion": null
@@ -361,10 +690,10 @@
         "category": "业务",
         "priority": "选问",
         "stage": "deep-dive",
-        "question": "B端项目的回款周期大概有多长？财务这边现在是怎么跟进的，手工表格还是系统？",
-        "purpose": "评估回款管理需求深度和紧迫度",
-        "expectedDirection": "期望了解账期长度和当前管理方式",
-        "targetPerson": "财务/商务负责人",
+        "question": "目前各部门的工时填报用Excel具体是怎么操作的？是每人填自己的还是部门负责人汇总后上报？",
+        "purpose": "了解现有流程细节，为在线表单设计提供参考",
+        "expectedDirection": "期望得到现有流程描述和主要卡点",
+        "targetPerson": "部门负责人或研发人员",
         "relatedNeedIds": ["REQ-003"],
         "status": "pending",
         "answer": null,
@@ -372,29 +701,47 @@
       },
       {
         "id": "PQ-009",
+        "category": "业务",
+        "priority": "选问",
+        "stage": "deep-dive",
+        "question": "管理费用挂靠到项目时，是按什么维度挂靠的（如按工时占比、按项目收入占比、固定分配）？有没有特殊项目的例外规则？",
+        "purpose": "明确费用归集规则，避免设计偏差",
+        "expectedDirection": "期望得到具体的挂靠规则和例外情况",
+        "targetPerson": "财务人员或财务总监",
+        "relatedNeedIds": ["REQ-004"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-010",
         "category": "技术",
         "priority": "选问",
         "stage": "deep-dive",
-        "question": "党政军和金融行业的客户对信创有硬性要求吗？这块我们有没有遇到过因为信创不达标丢单的情况？",
-        "purpose": "评估信创需求的真实紧迫度",
-        "expectedDirection": "期望了解信创是加分项还是必选项",
-        "targetPerson": "郭女士（渠道销售负责人）或技术负责人",
-        "relatedNeedIds": ["REQ-009"],
+        "question": "自研CRM目前的客户和项目数据完整度如何？能否作为项目利润核算的客户数据源？",
+        "purpose": "评估自研CRM数据质量，决定是否需要先做数据清洗",
+        "expectedDirection": "期望了解CRM数据完整度和可用性",
+        "targetPerson": "系统管理员或CRM负责人",
+        "relatedNeedIds": ["REQ-006", "REQ-010"],
         "status": "pending",
         "answer": null,
         "resolvedInVersion": null
       }
     ],
     "completionRate": {
-      "overall": 25,
+      "overall": 64,
       "byCategory": {
-        "business": 28,
-        "functional": 28,
-        "technical": 20,
-        "integration": 20,
-        "data": 20
+        "business": 62,
+        "functional": 60,
+        "technical": 50,
+        "integration": 78,
+        "data": 40
       },
-      "blockers": ["政企客户全生命周期管理（confidence=low，priority=must）", "多平台并行项目协调管理（confidence=low，priority=must）"]
+      "blockers": [
+        "预算未知（PQ-001待确认）",
+        "决策流程不明确（PQ-003待确认）",
+        "多系统API能力待验证（PQ-006待确认）"
+      ]
     }
   }
 }
