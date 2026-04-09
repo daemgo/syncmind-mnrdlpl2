@@ -23,6 +23,16 @@
         { "action": "设计工时填报与项目利润核算方案", "owner": "方案", "assignee": "", "deadline": null, "done": false, "completedAt": null },
         { "action": "确认多系统数据集成方案（宜搭、易快报、自研CRM）", "owner": "方案", "assignee": "", "deadline": null, "done": false, "completedAt": null }
       ]
+    },
+    {
+      "id": 3,
+      "date": "2026-04-09",
+      "type": "其他",
+      "content": "与客户深度沟通后重新梳理需求：客户一期自研CRM已跑通线索→客户→项目全流程，本次聚焦费用统计归集。核心方案：将易快报报销流程全部迁移至宜搭，替换客户当前为每个项目单独设置费用申请流程的混乱现状，统一费用管理入口",
+      "attendees": ["客户方", "销售方"],
+      "actions": [
+        { "action": "梳理客户宜搭现有费用支付流程清单及审批链", "owner": "售前", "assignee": "", "deadline": null, "done": false, "completedAt": null },
+        { "action": "梳理易快报报销流程清单及字段，设计迁移方案", "owner": "售前", "assignee": "", "deadline": null, "done": false, "completedAt": null },
+        { "action": "输出统一费用管理方案，解决多项目流程分散问题", "owner": "方案", "assignee": "", "deadline": null, "done": false, "completedAt": null }
+      ]
     }
-  ]
-}
