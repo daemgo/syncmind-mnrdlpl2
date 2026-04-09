@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "id": 1,
+      "date": "2026-04-02",
+      "type": "会议",
+      "content": "项目费用管控与业财一体需求调研，确认二期建设范围包括项目管理、项目收支、项目利润报表",
+      "attendees": ["客户方（何总、陈迪等）", "钉钉方（罗煜昊销售、沈工售前、赵涟漪技术）"],
+      "actions": [
+        { "action": "梳理项目管理需求，统一项目主数据", "owner": "客户", "assignee": "", "deadline": null, "done": false, "completedAt": null },
+        { "action": "确认现有流程清单（80+个）", "owner": "客户", "assignee": "", "deadline": null, "done": false, "completedAt": null },
+        { "action": "输出业财一体解决方案", "owner": "方案", "assignee": "一大技术", "deadline": "2026-04-13", "done": false, "completedAt": null }
+      ]
+    }
+  ]
+}
