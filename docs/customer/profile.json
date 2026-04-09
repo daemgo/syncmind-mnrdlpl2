@@ -1,0 +1,118 @@
+{
+  "companyName": "武汉卓鹰世纪科技有限公司",
+  "shortName": "卓鹰世纪",
+  "summary": "创立于2006年的武汉光谷软件企业，依托短信云信业务积累600+政企客户，近年拓展数字营销、共享出行及信创服务，2024年获AI企业认定",
+  "industry": "软件与信息技术",
+  "subIndustry": "企业服务平台/SaaS",
+  "scale": "中小型企业（50-99人）",
+  "mainBusiness": "平台软件定制开发与运营服务，核心产品包括云信短信平台、云易贷、共享出行、数字营销平台",
+  "products": [
+    {"name": "卓鹰云信", "description": "短信服务平台，服务600+政企客户"},
+    {"name": "卓鹰云易贷", "description": "金融服务平台"},
+    {"name": "卓鹰共享出行", "description": "共享出行平台"},
+    {"name": "卓鹰数字营销", "description": "数字营销平台"},
+    {"name": "卓鹰信息技术应用创新公共服务平台", "description": "信创服务平台"}
+  ],
+  "targetCustomers": ["党政军", "金融", "商业零售", "教育", "医疗", "工业"],
+  "businessModel": "平台运营+定制服务+SaaS订阅",
+  "rating": "A",
+  "tags": ["高新技术", "瞪羚企业", "省级专精特新小巨人", "科技型中小企业", "A级纳税人", "武汉市人工智能企业", "信创", "AI企业"],
+  "website": "https://whdrawing.com",
+  "slogan": "",
+  "isListed": false,
+  "stockCode": "",
+  "revenueScale": "千万至亿元级",
+  "registration": {
+    "registeredCapital": "1000万人民币",
+    "paidCapital": "1000万人民币",
+    "establishedDate": "2006-11-17",
+    "legalRepresentative": "李琼芳",
+    "businessStatus": "存续",
+    "organizationType": "有限责任公司",
+    "branchCount": 2,
+    "interpretation": "注册资本实缴到位，资金真实性高，可支撑中型项目投标；曾用名武汉卓鹰世纪科技集团，深圳/宝鸡分公司已注销，全国扩张策略已收缩",
+    "keyFindings": [
+      "注册资本1000万实缴到位，资金实力支撑中型项目投标",
+      "深圳/宝鸡分公司已注销，全国扩张策略已收缩，以武汉为核心运营",
+      "对外投资3家子公司，持续布局平台生态"
+    ]
+  },
+  "organization": {
+    "type": "职业化管理",
+    "decisionChain": "业务负责人→李琼芳（法人/实控人）双签，大客户/战略合作由法人直接拍板",
+    "keyPersons": [
+      {"name": "李琼芳", "title": "法人/实控人"},
+      {"name": "郭女士", "title": "渠道销售负责人"}
+    ],
+    "salesStrategy": "以运营商+银行为标杆客户背书，重点打党政军和金融行业，渠道以区域合伙人为触角快速扩张"
+  },
+  "timing": {
+    "phase": "扩张强化期",
+    "analysisBasis": [
+      "2022年引入鑫蜂维做数字化组织咨询，内部管理升级需求强烈",
+      "2024年获武汉市人工智能企业认定，研发投入持续加大",
+      "2024年多地中标运营商和金融机构项目，产品已获头部客户验证"
+    ],
+    "entryStrategy": "以CRM/项目管理切入其内部数字化需求，或以运营商合作为桥梁进入生态",
+    "urgency": "中等，窗口期6-12个月，渠道扩张期是最佳接触时机"
+  },
+  "hiring": {
+    "keySignals": [
+      "多地招聘区域渠道经理（襄阳/黄冈/宜昌），底薪6-15k，正积极拓展区域渠道网络",
+      "招聘市场公共关系（品牌策划）岗位，关注企业品牌建设",
+      "武汉为核心运营，人员规模50-99人"
+    ]
+  },
+  "competition": {
+    "industryRank": "华中区域短信服务平台细分市场领先",
+    "marketShare": "",
+    "mainCompetitors": ["梦网科技", "大汉三通"],
+    "knownClients": ["中国联通武汉", "铁塔能源", "光大银行武汉分行", "同济医院"]
+  },
+  "riskAndPolicy": {
+    "legal": {
+      "lawsuitCount": 3,
+      "lawsuitTypes": ["合同纠纷"],
+      "majorLawsuits": [],
+      "administrativePenalties": [],
+      "executedPerson": false,
+      "dishonestPerson": false,
+      "businessAnomalies": [],
+      "equityFreeze": false,
+      "equityPledge": false
+    },
+    "policy": {
+      "isSpecializedSME": true,
+      "smeLevel": "省级",
+      "isHighTech": true,
+      "isGazelle": true,
+      "isUnicorn": false,
+      "digitalTransformation": true,
+      "esgGreen": false,
+      "xinchuang": true,
+      "aiEnterprise": true
+    }
+  },
+  "painPoints": [
+    {"area": "项目管理", "description": "多平台并行运营，跨部门/跨区域项目协调困难，渠道扩张期尤为突出", "severity": "高"},
+    {"area": "客户管理", "description": "600+政企客户分散在各平台，续约管理不透明", "severity": "高"},
+    {"area": "回款管理", "description": "B端项目账期长，大客户付款流程复杂", "severity": "中"},
+    {"area": "知识管理", "description": "十余年运营经验集中在核心团队，新人培养效率低", "severity": "中"},
+    {"area": "运维管理", "description": "短信/共享出行业态对稳定性要求高，多平台运维压力大", "severity": "中"}
+  ],
+  "opportunities": [
+    {"area": "CRM/客户成功", "description": "600+政企客户资产化需求强烈，整合后可提升续约率和交叉销售", "likelihood": "高"},
+    {"area": "内部数字化深化", "description": "2022年已引入钉钉生态，对项目管理/知识库等工具接受度高", "likelihood": "高"},
+    {"area": "信创/AI合作", "description": "已获AI企业认定，与华为/阿里云深度合作，有天然合作基础", "likelihood": "中"}
+  ],
+  "analysisPath": "A",
+  "confidence": 85,
+  "metadata": {
+    "createdAt": "2026-04-09T10:30:00Z",
+    "updatedAt": "2026-04-09T10:30:00Z",
+    "createdBy": "AI",
+    "version": "1.0",
+    "confidence": 85,
+    "sources": ["天眼查", "启信宝", "卓鹰世纪官网(whdrawing.com)"]
+  }
+}
