@@ -11,6 +11,18 @@
         { "action": "确认现有流程清单（80+个）", "owner": "客户", "assignee": "", "deadline": null, "done": false, "completedAt": null },
         { "action": "输出业财一体解决方案", "owner": "方案", "assignee": "一大技术", "deadline": "2026-04-13", "done": false, "completedAt": null }
       ]
+    },
+    {
+      "id": 2,
+      "date": "2026-04-09",
+      "type": "其他",
+      "content": "财务总监发起项目利润统计需求，确认收入来源（宜搭开票申请+收入确认单）、支出四大模块（人工费、管理费、财务费、行政分摊），核心痛点：工时统计靠Excel上报易缺失、多系统并行（宜搭/易快报/自研CRM）汇总困难",
+      "attendees": ["客户方（财务总监）"],
+      "actions": [
+        { "action": "梳理现有费用流程清单，确认各系统数据源", "owner": "售前", "assignee": "", "deadline": null, "done": false, "completedAt": null },
+        { "action": "设计工时填报与项目利润核算方案", "owner": "方案", "assignee": "", "deadline": null, "done": false, "completedAt": null },
+        { "action": "确认多系统数据集成方案（宜搭、易快报、自研CRM）", "owner": "方案", "assignee": "", "deadline": null, "done": false, "completedAt": null }
+      ]
     }
   ]
 }

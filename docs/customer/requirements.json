@@ -1,0 +1,400 @@
+{
+  "currentVersion": "v0.1",
+  "status": "draft",
+  "versions": [],
+  "current": {
+    "salesInput": {
+      "salesPerson": "",
+      "lastUpdated": "2026-04-09",
+      "overallAssessment": {
+        "customerIntent": "",
+        "projectUrgency": "中等，窗口期6-12个月",
+        "budgetSituation": "未知",
+        "competitionStatus": "未知",
+        "winProbability": "",
+        "keyObstacles": [],
+        "confidenceLevel": ""
+      },
+      "keyPersons": [
+        { "name": "李琼芳", "title": "法人/实控人", "role": "最终决策人" },
+        { "name": "郭女士", "title": "渠道销售负责人", "role": "业务负责人/触点" }
+      ],
+      "realNeeds": {
+        "explicitNeeds": [],
+        "implicitNeeds": ["600+政企客户资产化", "多平台项目协调", "核心团队经验固化"],
+        "suspectedNeeds": ["回款周期优化", "运维响应能力提升"]
+      },
+      "decisionFactors": {
+        "primaryFactor": "",
+        "secondaryFactors": [],
+        "dealBreakers": []
+      },
+      "notes": "渠道扩张期是最佳接触时机，CRM/项目管理可作切入，运营商合作为生态桥梁",
+      "concerns": [],
+      "suggestions": []
+    },
+    "sources": {
+      "meetings": [],
+      "documents": [],
+      "communications": [],
+      "observations": []
+    },
+    "needs": [
+      {
+        "id": "REQ-001",
+        "category": "business",
+        "title": "政企客户全生命周期管理",
+        "description": "整合分散在多平台的600+政企客户信息，建立统一的客户档案、续约提醒和交叉销售管理体系",
+        "priority": "must",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "客户管理痛点（severity=高）+ 600+政企客户规模推演", "raw": null },
+        "status": "active",
+        "module": "CRM/客户成功",
+        "relatedPainPoints": ["客户管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-002",
+        "category": "business",
+        "title": "多平台并行项目协调管理",
+        "description": "支持跨部门、跨区域的并行项目看板、进度跟踪和资源冲突预警，覆盖云信短信、云易贷、共享出行等多条业务线",
+        "priority": "must",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "项目管理痛点（severity=高）+ 多平台并行运营特征推演", "raw": null },
+        "status": "active",
+        "module": "项目管理",
+        "relatedPainPoints": ["项目管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-003",
+        "category": "functional",
+        "title": "B端项目回款跟踪与预警",
+        "description": "管理长账期项目应收款项、付款节点和到账确认，对接大客户复杂付款流程，支持多级审批",
+        "priority": "should",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "回款管理痛点（severity=中）+ B端项目账期长特征推演", "raw": null },
+        "status": "active",
+        "module": "合同/应收管理",
+        "relatedPainPoints": ["回款管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-004",
+        "category": "functional",
+        "title": "运营知识库与经验沉淀",
+        "description": "将十余年平台运营经验结构化，支持案例库、最佳实践、操作手册等分类管理，加速新人培养",
+        "priority": "should",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "知识管理痛点（severity=中）+ 核心团队经验集中推演", "raw": null },
+        "status": "active",
+        "module": "知识管理",
+        "relatedPainPoints": ["知识管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-005",
+        "category": "functional",
+        "title": "渠道合伙人管理",
+        "description": "管理区域合伙人信息、合作协议、业绩分润和拓展进度，支持渠道扩张期快速规模化",
+        "priority": "should",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "渠道合伙人扩张策略 + 渠道销售负责人角色推演", "raw": null },
+        "status": "active",
+        "module": "CRM/渠道管理",
+        "relatedPainPoints": ["客户管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-006",
+        "category": "functional",
+        "title": "客户成功与续约管理",
+        "description": "跟踪政企客户使用健康度、服务满意度，主动触发续约前关怀和升级销售机会识别",
+        "priority": "should",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "600+政企客户资产化需求 + 续约管理不透明痛点推演", "raw": null },
+        "status": "active",
+        "module": "客户成功",
+        "relatedPainPoints": ["客户管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-007",
+        "category": "technical",
+        "title": "钉钉生态深度集成",
+        "description": "基于2022年已引入钉钉生态的基础，打通钉钉审批、组织架构和消息通知，实现统一入口",
+        "priority": "should",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "timing分析中钉钉生态基础 + 2022年鑫蜂维数字化咨询推演", "raw": null },
+        "status": "active",
+        "module": "集成/平台对接",
+        "relatedPainPoints": ["项目管理", "知识管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-008",
+        "category": "functional",
+        "title": "多平台运维监控与告警",
+        "description": "对云信短信、共享出行等高稳定性要求平台实现统一监控、故障告警和响应工单管理",
+        "priority": "could",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "运维管理痛点（severity=中）+ 短信/共享出行高稳定性要求推演", "raw": null },
+        "status": "active",
+        "module": "运维管理",
+        "relatedPainPoints": ["运维管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-009",
+        "category": "technical",
+        "title": "信创环境适配",
+        "description": "满足政企客户信创要求，支持国产操作系统、数据库和中间件的部署与适配",
+        "priority": "could",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "企业标签含'信创' + 党政军金融行业目标客户推演", "raw": null },
+        "status": "active",
+        "module": "信创/合规",
+        "relatedPainPoints": [],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-010",
+        "category": "data",
+        "title": "政企客户数据分析与可视化",
+        "description": "对600+政企客户的行业分布、续约率、收入贡献等维度进行数据分析，支持经营决策",
+        "priority": "could",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "600+政企客户规模 + SaaS平台数据驱动运营特征推演", "raw": null },
+        "status": "active",
+        "module": "数据分析",
+        "relatedPainPoints": ["客户管理"],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      },
+      {
+        "id": "REQ-011",
+        "category": "integration",
+        "title": "运营商及金融机构系统对接",
+        "description": "与运营商、银行等标杆客户的系统实现API对接，支持订单自动同步、服务状态推送等场景",
+        "priority": "could",
+        "confidence": "low",
+        "source": { "type": "profile-inference", "detail": "运营商+银行标杆客户策略 + 2024年多地中标运营商和金融机构项目推演", "raw": null },
+        "status": "active",
+        "module": "集成/平台对接",
+        "relatedPainPoints": [],
+        "firstVersion": "v0.1",
+        "lastUpdated": "v0.1",
+        "history": []
+      }
+    ],
+    "users": [
+      { "role": "渠道销售负责人（郭女士）", "description": "1人，负责区域合伙人管理和政企客户开拓", "mainTasks": ["客户信息录入与更新", "渠道合伙人业绩跟踪", "续约提醒与跟进"] },
+      { "role": "项目经理/运营人员", "description": "若干，负责多平台并行项目的进度协调", "mainTasks": ["项目看板管理", "跨部门任务分配", "进度预警处理"] },
+      { "role": "财务/商务", "description": "若干，负责B端项目回款跟踪", "mainTasks": ["应收款项登记", "付款节点跟踪", "到账确认"] },
+      { "role": "技术/运维团队", "description": "若干，负责多平台稳定性保障", "mainTasks": ["监控告警响应", "故障工单处理", "系统可用性报告"] },
+      { "role": "新员工", "description": "持续补充，负责知识库查阅和案例学习", "mainTasks": ["知识库查询", "最佳实践学习", "操作手册查阅"] }
+    ],
+    "scope": {
+      "inScope": ["CRM/客户成功管理", "项目管理（多平台并行）", "知识库", "回款跟踪", "渠道合伙人管理"],
+      "outOfScope": ["底层代码开发", "硬件采购", "独立移动App开发"],
+      "futureScope": ["AI智能推荐", "供应商管理", "人力资源管理"],
+      "phases": [
+        { "phase": 1, "focus": "CRM+项目管理（核心痛点切入）", "approxDuration": "3-6个月" },
+        { "phase": 2, "focus": "知识库+回款管理（效率提升）", "approxDuration": "3-6个月" },
+        { "phase": 3, "focus": "运维监控+数据分析（运营深化）", "approxDuration": "3-6个月" }
+      ],
+      "priorityMatrix": [
+        { "effort": "高", "impact": "高", "recommendation": "优先实施", "items": ["政企客户全生命周期管理", "多平台项目协调管理"] },
+        { "effort": "中", "impact": "高", "recommendation": "第二阶段", "items": ["B端项目回款跟踪", "运营知识库", "渠道合伙人管理"] },
+        { "effort": "低", "impact": "中", "recommendation": "按需", "items": ["钉钉生态集成", "运维监控"] }
+      ]
+    },
+    "constraints": {
+      "budget": { "total": "", "flexibility": "未知" },
+      "timeline": { "expectedStart": "", "expectedGoLive": "" }
+    },
+    "successCriteria": {},
+    "risksAndAssumptions": {
+      "risks": [
+        { "description": "大客户和战略合作需法人双签，决策链较长，可能影响推进节奏", "impact": "高", "mitigation": "提前识别关键决策人，制定差异化沟通策略" },
+        { "description": "渠道合伙人分散各地，数据采集和系统推广存在地域障碍", "impact": "中", "mitigation": "采用SaaS云部署，优先线上培训和引导" },
+        { "description": "多平台并行运营现状复杂，系统对接工作量存在不确定性", "impact": "中", "mitigation": "首期聚焦核心模块，后续迭代扩展" }
+      ],
+      "assumptions": [
+        { "description": "假设渠道扩张期（当前阶段）对客户管理和项目管理工具的需求紧迫度高于其他阶段", "impact": "高" },
+        { "description": "假设2022年引入钉钉生态后，组织对协作工具已有基本接受度，可降低培训成本", "impact": "中" },
+        { "description": "假设600+政企客户中存在足够数量的高价值客户，值得投入CRM建设", "impact": "中" },
+        { "description": "假设信创要求来自目标政企客户而非自身合规需求，可作为加分项而非必选项", "impact": "低" }
+      ],
+      "dependencies": [
+        "依赖钉钉生态API开放程度评估",
+        "依赖现有各平台系统接口调研"
+      ]
+    },
+    "solutionDirection": {
+      "overallApproach": "以CRM+项目管理为核心模块，分三期落地；优先云SaaS部署降低实施门槛；与钉钉生态深度集成复用现有投入",
+      "recommendedApproach": null,
+      "technicalDirection": null,
+      "implementationStrategy": null,
+      "nextSteps": []
+    },
+    "pendingQuestions": [
+      {
+        "id": "PQ-001",
+        "category": "预算",
+        "priority": "必问",
+        "stage": "screening",
+        "question": "贵司今年在内部数字化工具（CRM、项目管理等）的预算大概是什么量级？",
+        "purpose": "判断客户购买力和项目可行性，识别付费意愿",
+        "expectedDirection": "期望得到具体金额范围或相对量级判断",
+        "targetPerson": "郭女士（渠道销售负责人）或李琼芳（法人）",
+        "relatedNeedIds": ["REQ-001", "REQ-002", "REQ-003"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-002",
+        "category": "时间",
+        "priority": "必问",
+        "stage": "screening",
+        "question": "公司内部对这套系统的上线时间有预期吗？比如有没有一个希望今年内用起来的节点？",
+        "purpose": "判断项目紧迫度，制定推进计划",
+        "expectedDirection": "期望得到具体时间节点或时间范围",
+        "targetPerson": "郭女士（渠道销售负责人）",
+        "relatedNeedIds": ["REQ-001", "REQ-002"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-003",
+        "category": "决策",
+        "priority": "必问",
+        "stage": "screening",
+        "question": "像这类数字化工具的采购，最终是郭女士您这边拍板，还是需要李总（法人）那边确认？",
+        "purpose": "明确决策链和关键人，避免做无用功",
+        "expectedDirection": "期望得到决策层级说明（单签/双签/特批等）",
+        "targetPerson": "郭女士（渠道销售负责人）",
+        "relatedNeedIds": ["REQ-001", "REQ-002"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-004",
+        "category": "业务",
+        "priority": "必问",
+        "stage": "deep-dive",
+        "question": "目前600+政企客户的信息主要分散在哪些平台？有没有一个主平台在管，还是完全散落的？",
+        "purpose": "了解客户管理现状，评估数据整合工作量",
+        "expectedDirection": "期望得到具体平台名称和当前管理方式",
+        "targetPerson": "郭女士（渠道销售负责人）",
+        "relatedNeedIds": ["REQ-001", "REQ-006"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-005",
+        "category": "业务",
+        "priority": "必问",
+        "stage": "deep-dive",
+        "question": "多平台并行项目协调这块，目前是怎么管理的？是用表格、邮件，还是有专门的工具？",
+        "purpose": "了解项目管理现状，判断痛点真实程度和工作流",
+        "expectedDirection": "期望得到当前管理方式和主要卡点",
+        "targetPerson": "项目经理/运营人员",
+        "relatedNeedIds": ["REQ-002"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-006",
+        "category": "技术",
+        "priority": "选问",
+        "stage": "deep-dive",
+        "question": "现在钉钉里主要跑哪些审批和协作场景？对打通钉钉组织架构这块有需求吗？",
+        "purpose": "评估钉钉集成深度和价值点",
+        "expectedDirection": "期望得到钉钉使用深度和集成期望",
+        "targetPerson": "郭女士（渠道销售负责人）或IT负责人",
+        "relatedNeedIds": ["REQ-007"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-007",
+        "category": "竞对",
+        "priority": "选问",
+        "stage": "screening",
+        "question": "目前内部有在对比其他家的CRM或者项目管理工具吗？还是说刚有想法在找？",
+        "purpose": "判断采购阶段和竞争态势",
+        "expectedDirection": "期望了解竞对情况或采购阶段",
+        "targetPerson": "郭女士（渠道销售负责人）",
+        "relatedNeedIds": ["REQ-001", "REQ-002"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-008",
+        "category": "业务",
+        "priority": "选问",
+        "stage": "deep-dive",
+        "question": "B端项目的回款周期大概有多长？财务这边现在是怎么跟进的，手工表格还是系统？",
+        "purpose": "评估回款管理需求深度和紧迫度",
+        "expectedDirection": "期望了解账期长度和当前管理方式",
+        "targetPerson": "财务/商务负责人",
+        "relatedNeedIds": ["REQ-003"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      },
+      {
+        "id": "PQ-009",
+        "category": "技术",
+        "priority": "选问",
+        "stage": "deep-dive",
+        "question": "党政军和金融行业的客户对信创有硬性要求吗？这块我们有没有遇到过因为信创不达标丢单的情况？",
+        "purpose": "评估信创需求的真实紧迫度",
+        "expectedDirection": "期望了解信创是加分项还是必选项",
+        "targetPerson": "郭女士（渠道销售负责人）或技术负责人",
+        "relatedNeedIds": ["REQ-009"],
+        "status": "pending",
+        "answer": null,
+        "resolvedInVersion": null
+      }
+    ],
+    "completionRate": {
+      "overall": 25,
+      "byCategory": {
+        "business": 28,
+        "functional": 28,
+        "technical": 20,
+        "integration": 20,
+        "data": 20
+      },
+      "blockers": ["政企客户全生命周期管理（confidence=low，priority=must）", "多平台并行项目协调管理（confidence=low，priority=must）"]
+    }
+  }
+}
