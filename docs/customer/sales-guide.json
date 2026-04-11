@@ -1,0 +1,122 @@
+{
+  "salesGuide": {
+    "timing": {
+      "timingStage": "扩张强化期",
+      "entryStrategy": "以费用统计归集为切入点，先盘点宜搭现状和一期CRM接口，用1-2周交付一份「费用流程现状诊断+统一方案设计」，让客户看到我们对宜搭生态的专业度，再推进项目立项",
+      "urgency": "中等"
+    },
+    "stageAdvice": {
+      "focus": "快速验证费用归集方案的可行性，建立信任后推动立项",
+      "approach": "以宜搭生态专家身份切入，帮客户理清现状→出方案，而非直接卖产品",
+      "risks": "客户可能要求我们直接出实施方案，但在不清楚宜搭流程差异和CRM接口前贸然承诺，容易交付翻车"
+    },
+    "competitors": [
+      {
+        "name": "现状方案（宜搭逐项目流程 + 易快报）",
+        "threat": "高",
+        "strengths": ["客户已投入大量配置成本，每个项目流程已跑通", "易报快报报销流程已稳定运行，员工熟悉"],
+        "weaknesses": ["流程数量随项目增长线性膨胀，维护成本越来越高", "数据分散在两个平台，无法统一统计归集"],
+        "counterStrategy": "不谈推翻重建，先帮客户盘点现状痛点量化（流程数量、统计耗时），用数据证明统一方案的ROI"
+      },
+      {
+        "name": "传统ERP财务模块（用友/金蝶）",
+        "threat": "中",
+        "strengths": ["财务功能完备，项目核算能力成熟", "品牌认知度高，财务总监可能已有使用经验"],
+        "weaknesses": ["部署周期长（3-6个月起），成本高", "对50-99人中小企业偏重，与宜搭/一期CRM集成需要额外开发"],
+        "counterStrategy": "强调轻量化和生态兼容性——基于现有宜搭和CRM构建，不替换核心系统，上线快、风险低"
+      },
+      {
+        "name": "钉钉原生套件/第三方宜搭插件",
+        "threat": "低",
+        "strengths": ["与钉钉生态天然集成，使用门槛低", "部分插件已支持费用管理基础功能"],
+        "weaknesses": ["标准化程度高但定制能力弱，难覆盖客户差异化审批规则", "缺乏与自建一期CRM的数据打通能力"],
+        "counterStrategy": "突出定制化和集成能力——能做CRM对接、自定义审批规则配置，标准插件做不到的正是我们的优势"
+      }
+    ],
+    "decisionChain": {
+      "decisionMakers": [
+        { "name": "李琼芳", "department": "法人/实控人", "reason": "大客户和战略合作由法人直接拍板，项目立项需其签字" },
+        { "name": "财务总监", "department": "财务部", "reason": "需求发起方，项目级利润核算的最初提出者，对方案有否决权" }
+      ],
+      "influencers": [
+        { "name": "CRM开发负责人", "department": "技术/IT", "reason": "一期CRM的开发者，费用管理与其系统对接的技术可行性由其评估" },
+        { "name": "郭女士", "department": "渠道销售", "reason": "渠道销售负责人，若费用管理与渠道项目挂钩，其意见有分量" }
+      ],
+      "blockers": [
+        { "name": "系统管理员/宜搭维护人", "department": "技术/IT", "reason": "负责现有宜搭流程维护，统一方案意味着大量旧流程要废弃重构，可能因工作量产生抵触" }
+      ]
+    },
+    "avoidTopics": [
+      "合同纠纷诉讼——profile显示有3起合同纠纷，避免主动询问法律纠纷细节",
+      "否定宜搭现有方案——客户已在宜搭投入精力，不要说「现在的做法不对」，而说「可以帮你更高效」",
+      "分公司注销话题——深圳/宝鸡分公司已注销，避免追问扩张收缩的原因，聚焦当前武汉核心业务"
+    ],
+    "interviewGuide": {
+      "fromRequirements": [
+        {
+          "questionId": "PQ-005",
+          "stage": "screening",
+          "question": "这个费用管理项目的预算大概在什么量级？",
+          "priority": "选问",
+          "status": "pending"
+        },
+        {
+          "questionId": "PQ-001",
+          "stage": "deep-dive",
+          "question": "宜搭现在有多少个费用相关的流程？每个项目的费用申请流程具体有哪些字段差异和审批差异？",
+          "priority": "必问",
+          "status": "pending"
+        },
+        {
+          "questionId": "PQ-002",
+          "stage": "deep-dive",
+          "question": "易快报中有多少个报销流程？涉及哪些费用类型？历史数据量有多大？",
+          "priority": "必问",
+          "status": "pending"
+        },
+        {
+          "questionId": "PQ-003",
+          "stage": "deep-dive",
+          "question": "一期CRM的项目数据结构是怎样的？有哪些字段？是否提供API或数据库访问？",
+          "priority": "必问",
+          "status": "pending"
+        },
+        {
+          "questionId": "PQ-004",
+          "stage": "deep-dive",
+          "question": "宜搭现有的费用支付流程是什么样的？和费用申请流程是什么关系？",
+          "priority": "必问",
+          "status": "pending"
+        },
+        {
+          "questionId": "PQ-006",
+          "stage": "deep-dive",
+          "question": "统一费用流程后，是否所有项目共用一套审批流？还是按项目类别/金额分级配置？",
+          "priority": "选问",
+          "status": "pending"
+        }
+      ],
+      "quickScreening": [
+        { "question": "这个费用管理项目的预算大概在什么量级？", "purpose": "判断项目可行性和方案选型" }
+      ],
+      "closingQuestions": []
+    },
+    "tracking": {
+      "coverageRate": 0,
+      "coveredCount": 0,
+      "totalCount": 6,
+      "pendingCritical": ["PQ-001", "PQ-002", "PQ-003", "PQ-004"]
+    },
+    "nextActions": [
+      { "action": "约见财务总监，梳理宜搭现有费用流程清单（数量、字段、审批规则）", "deadline": "2026-04-18", "owner": "售前" },
+      { "action": "协调对接一期CRM开发负责人，确认项目数据结构和可用接口", "deadline": "2026-04-18", "owner": "售前" },
+      { "action": "了解易快报报销流程清单和历史数据量级", "deadline": "2026-04-18", "owner": "销售" },
+      { "action": "输出费用流程现状诊断报告+统一方案初步设计", "deadline": "2026-04-25", "owner": "方案" }
+    ],
+    "metadata": {
+      "generatedAt": "2026-04-11T12:00:00Z",
+      "updatedAt": null,
+      "version": "1.0"
+    }
+  }
+}
